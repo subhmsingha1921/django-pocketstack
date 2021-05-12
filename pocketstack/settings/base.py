@@ -85,7 +85,10 @@ ROOT_URLCONF = 'pocketstack.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'pocketstack/templates'),
+            os.path.join(BASE_DIR, 'templates')
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -175,11 +178,9 @@ ACCOUNT_CONFIRM_EMAIL_ON_GET = True
 ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 1
 
 
-LOGIN_URL = 'http://192.168.43.40:8000/auth/login'
-
-
 REST_AUTH_SERIALIZERS = {
     'USER_DETAILS_SERIALIZER': 'users.serializers.CustomUserProfileSerializer',
+    'PASSWORD_RESET_SERIALIZER': 'users.serializers.CustomPasswordResetSerializer',
 }
 
 
@@ -213,3 +214,6 @@ SOCIALACCOUNT_PROVIDERS = {
         }
     }
 }
+
+
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'

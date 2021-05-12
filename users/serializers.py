@@ -1,9 +1,18 @@
+from dj_rest_auth.serializers import PasswordResetSerializer
 from rest_framework import serializers
 
 from questions.serializers import QuestionPostSerializer
 from answers.serializers import AnswerPostSerializer
 
 from .models import CustomUser
+
+
+class CustomPasswordResetSerializer(PasswordResetSerializer):
+
+    def get_email_options(self):
+        return {
+            'html_email_template_name': 'custom_password_reset_email.html',
+        }
 
 
 class CustomUserProfileSerializer(serializers.ModelSerializer):

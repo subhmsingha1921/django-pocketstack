@@ -11,6 +11,7 @@ dj-rest-auth = {extras = ["with_social"], version = "*"}
 django-taggit = "==1.2.0"
 django-taggit-serializer = "*"
 python-dotenv = "*"
+django-sendgrid-v5 = "*"
 
 [dev-packages]
 

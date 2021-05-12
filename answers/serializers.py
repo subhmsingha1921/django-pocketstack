@@ -8,7 +8,7 @@ class AnswerCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Answer
         fields = (
-            'question',
+            # 'question',
             'body',
         )
 

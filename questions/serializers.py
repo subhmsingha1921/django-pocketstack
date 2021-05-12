@@ -70,6 +70,9 @@ class QuestionDetailSerializer(TaggitSerializer, serializers.ModelSerializer):
     accept_url = serializers.HyperlinkedIdentityField(
         view_name='question_answer_accept'
     )
+    answer_create_url = serializers.HyperlinkedIdentityField(
+        view_name='question_answer_create'
+    )
 
     class Meta:
         model = Question
@@ -91,6 +94,7 @@ class QuestionDetailSerializer(TaggitSerializer, serializers.ModelSerializer):
             'downvote_url',
             'edit_url',
             'accept_url',
+            'answer_create_url',
             'answers',
         )
 

@@ -4,6 +4,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from django.http import Http404
 
+from questions.models import Question
 from questions.permissions import IsOwnerOrReadOnly
 
 from .models import Answer
@@ -21,7 +22,9 @@ class AnswerCreateView(generics.CreateAPIView):
     serializer_class = AnswerCreateSerializer
 
     def perform_create(self, serializer):
-        serializer.save(owner=self.request.user)
+        question_pk = self.kwargs.get('pk')
+        question = Question.objects.get(id=question_pk)
+        serializer.save(question=question, owner=self.request.user)
 
 
 class AnswerEditView(generics.RetrieveUpdateDestroyAPIView):
