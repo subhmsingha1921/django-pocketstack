@@ -1,1 +1,1 @@
-Please follow the steps defined below to run this project successfully
+Please follow the steps below to run this project successfully
